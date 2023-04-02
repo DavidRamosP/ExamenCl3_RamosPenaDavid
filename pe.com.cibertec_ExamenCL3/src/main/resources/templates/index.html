@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"   
+    >
+     
+    <head>
+        
+        <title>plantilla</title>
+        <meta charset="UTF-8"/>
+      
+    </head>
+    <body  style="margin: 20px">
+        
+         <h2>Listado Customers</h2>
+                 
+        <br/> 
+        <br/>
+
+         <div th:if="${customers != null and  !customers.empty}">
+             <table border="2" align="Center" width="98%" margin="2px" >
+                 <tr>
+                     <th th:text="Name">Descripcion</th>
+                     <th th:text="Phone">Unidad</th>
+                     <th th:text="Email">Precio</th>
+
+                 
+                 </tr>
+                 
+                 <tr th:each="customer : ${customers}">
+                    <td  th:text="${customer.name}"      > Mostrar name  </td>
+                    <td  th:text="${customer.phone}" > Mostrar phone  </td>
+                    <td  th:text="${customer.email}" > Mostrar email  </td>
+                    </tr>
+                 
+             </table>
+                 
+         </div>
+         <div th:if="${customers == null or customers.empty }">
+             Lista vacia de customers
+         </div>
+    
+         
+         
+        
+</body>
+    
+</html>
